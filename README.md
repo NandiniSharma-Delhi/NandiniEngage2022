@@ -9,6 +9,7 @@ Os used:windows
 web technologies : django , bootstrap5
 
 It is a music recommender website.Currently not hosted.
+A content based system.Uses cosine similarity of songs.
 It recommends music based on similarity of songs in terms of song audio features:tempo,danceability,etc.
 and also based on popularity and year of songs in your playlist.
 
@@ -91,7 +92,7 @@ copy db.sqlite file there.
 $python manage.py makemigrations
 $python manage.py migrate
 
-
+these commands may take a few minutes to run because the dataset reading needs to be done.
 ### 11:if spotify asks for login:
 login to your account but first create a spotify developer account on:
 on spotify developer website login.
@@ -104,8 +105,10 @@ replace the clientid and clientsecret written there with your ones.
 if spotify does not ask for login,its fine.
 
 
-### 12:
+### 12:run the following command 
 $python manage.py runserver
+
+this may take a few minutes due to dataset reading.
 
 ### 13:go to "http://localhost:8000"
 
@@ -121,7 +124,7 @@ after login, website has pages: profile,logout,home,explore,recommended,My playl
 3. home:shows website name and about it.
 4. explore: shows trending songs based on data saved in tracksFinal.csv
 5. recommended: shows songs recommended based on songs saved in My playlist
-### if there is no song in My Playlist then recommender  shows nothing.
+### If there is no song in My Playlist then recommender  shows nothing.
 
 6. My playlist: contains songs I added to my playlist by clicking on add to playlist buttons on explore,recommended,searched songs
 search:can search songs based on song name and artist name only.
@@ -162,7 +165,7 @@ search can take time based on the number of results in output of search.
 
 4:we used cosine similarity of various features such as genre,year,artists,danceability,etc.. to generate recommendations based on user's playlist.
 
-## datasets:
+## Datasets:
 
 dataset reference:https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-600k-tracks
 1. tracksFinal.csv :contains a part of this big dataset.
@@ -171,7 +174,7 @@ dataset reference:https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-600
 instead of running those functions again to obtain this data.This is done for speedup in running website.
 
 
-## engine.py:
+## Engine.py: the heart of recommendations
 content based recommendations.
 
 it combines data from tracksFinal.csv and artists.csv  and does one hot encoding of year and popularity,tfidf on genre,scaling of float columns to make completeFeatures.csv.
@@ -181,6 +184,17 @@ Add date_added col to features_of_playlist and multipy weight to the number of m
 calculate cosine similarity of all songs not in playlist.
 and sort according to this score.
 return top 20 songs .
+
+
+## Challenges:
+running on machines which have less ram and memory can lead to memory errors.
+Huge datasets may slow down the machine.
+
+## Scalability:
+
+
+
+
 
 
 
