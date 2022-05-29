@@ -129,7 +129,7 @@ after login, website has pages: profile,logout,home,explore,recommended,My playl
 6. My playlist: contains songs I added to my playlist by clicking on add to playlist buttons on explore,recommended,searched songs
 search:can search songs based on song name and artist name only.
 
-7: music player:plays a welcome music already.if you want to play other song.Pause this player.sometimes you need to wait a few seconds after pausing.Then click on play button of the song you wish to play.it will show audio controls and image of that song.
+7: music player:plays a welcome music already.if you want to play other song.Pause this player.sometimes you need to wait a few seconds after pausing.Then click on play button of the song you wish to play.it will show audio controls and image of that song.it can usually play the other song only when current song finishes.
 
 
 ## Time taken to load:
@@ -190,7 +190,37 @@ return top 20 songs .
 running on machines which have less ram and memory can lead to memory errors.
 Huge datasets may slow down the machine.
 
-## Scalability:
+## Scaling dataset:
+
+we can change the dataset used by a bigger dataset.for this.
+follow the following steps:
+0. if you want to delete all previous data in Tracks Model :
+
+run:$python manage.py shell
+(inside shell) :
+>>> from recommender.models import Tracks,UserTracks
+>>> UserTracks.objects.all().delete()
+>>> Tracks.objects.all().delete()
+
+2. replace tracksFinal.csv and artists.csv by bigger datatsets but having similar data columns. and rename your files with these names only.
+3. To load Tracks Model with new tracksFinal.csv:
+ 
+go to recommender/views.py
+you can see a commented code that is used to load data to Tracks Model.
+uncomment that code and run:
+$python manage.py makemigrations
+$python manage.py migrate
+
+this can take time to load all data in Tracks Model.
+now comment that code again as it is no longer needed.
+
+4. go to engine.py comment line which reads completeFeatures.csv
+and uncomment the line just above it.
+
+5.now you can either save the complete_feature_set returned by engine.startworking() as completeFeatures.csv and make engine.py as it was in the start.
+or just keep engine.py as you have changed it.
+
+6.now your website can work on bigger data.
 
 
 
