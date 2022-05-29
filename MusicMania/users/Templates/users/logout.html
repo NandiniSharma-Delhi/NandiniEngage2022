@@ -1,0 +1,10 @@
+{% extends "homepage/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="logoutpage">
+    <h2 class="pb-3">Logged Out.Thanks for spending time with us.</h2>
+        <small class="border-top pt-3">
+            <a  class="buttonclass2" href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+{% endblock content %}

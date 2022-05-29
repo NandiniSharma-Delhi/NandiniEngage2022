@@ -1,0 +1,54 @@
+{% extends 'homepage/base.html' %}
+
+{% block content %}
+<div class="searchresults">
+        <script>
+            arr = new Map(); 
+            
+        </script>
+        {% if searchbar %}
+        <center><h1>Songs that match with "{{searchbar }}"</h1></center>
+            {% for song in SongList %}
+                <div class="card text-white bg-dark mb-3" style="width: 80%">
+                    <div class = "row no-gutters">
+                        <div class="col-auto">
+                            <img class="card-img-top" src="{{song.image_f1}}" alt="Card image cap" height = "200" width = "200">
+                        </div>
+                        <div class="col">
+                            <div class="card-body">
+                                <h5 class="card-title">{{song.name}}</h5>
+                                <p class="card-text">Artists: {{song.artists}}<br>Release: {{song.release_date}}</p>
+                                <form class = 'd-flex' method = POST action = "{% url 'homepage-home' %}" name = "addsong">
+                                    {% csrf_token %}
+                                      <input class="form-control me-2" type = "hidden" value = "{{song.id}}"  name = "addsong">
+                                      <button class = "btn btn-outline-info buttonclass3" type = "submit">Add To Playlist</button>
+                                </form>
+                                {% if song.songplay_f1 %}
+                                <script>
+                                    var var1 = "{{song.image_f1}}";
+                                    var var2="{{song.artists}}";
+                                    var var3 = "{{song.songplay_f1}}";
+                                    var var5="{{song.name}}";
+                                    var var4 = "{{song.id}}";
+                                    var tmp=[var1,var2,var3,var5];
+                                    arr.set(var4,tmp); 
+                                  </script>
+                                  <button class="btn btn-outline-info buttonclass3 playerlink"  title="play song" id = "{{song.id}}"  >
+                                    <i class="fa-solid fa-play" ></i>
+                                  </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            
+
+        {% else %}
+            <center><h1>You did not search for anything</h1></center>
+        {% endif %}
+        
+
+    
+</div>
+{%endblock content %}

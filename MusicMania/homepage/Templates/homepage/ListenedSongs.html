@@ -1,0 +1,48 @@
+{% extends "homepage/base.html" %}
+{% block content %}
+    <div class="myplaylist">
+    <h1>Songs You Liked</h1>
+    <script>
+      arr = new Map();  
+    </script>
+    {% for song in SongList %}
+    <div class="card text-white bg-dark mb-3" style="width: 80%">
+      <div class="row no-gutters">
+        <div class="col-auto">
+          <img class="card-img-top" src="{{song.image_f1}}" class="img-fluid" alt="Card image cap" height = "200" width = "200">
+        </div>
+        <div class="col">
+          <div class="card-body">
+            <h5 class="card-title">Song: {{song.name}}</h5>
+            <p class="card-text">Artists: {{song.artists}}
+              <br>Released On: {{song.release_date}}
+            </p>
+            <form class = 'd-flex' method = POST action = "{% url 'homepage-listenedsongs' %}" name = "delsong" >
+              {% csrf_token %}
+                <input class="form-control me-2" type = "hidden" value = "{{song.id}}"  name = "delsong">
+                <button class = "btn btn-outline-info buttonclass3" title="remove from playlist" type = "submit">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
+            </form>
+            {% if song.songplay_f1 %}
+              <script>
+                var var1 = "{{song.image_f1}}";
+                var var2="{{song.artists}}";
+                var var3 = "{{song.songplay_f1}}";
+                var var5="{{song.name}}";
+                var var4 = "{{song.id}}";
+                var tmp=[var1,var2,var3,var5];
+                arr.set(var4,tmp); 
+              </script>
+              <button class="btn btn-outline-info buttonclass3 playerlink"  title="play song" id = "{{song.id}}"  >
+                <i class="fa-solid fa-play" ></i>
+              </button>
+            {% endif %}
+            <!--<a href="#" class="btn button button-primary">Play</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock content %}

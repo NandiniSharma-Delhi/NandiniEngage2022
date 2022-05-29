@@ -1,0 +1,179 @@
+
+
+@import url(partials/_variables.css);
+@import url(partials/_globle.css);
+
+
+/*nav*/
+.header_area .navbar{
+    box-shadow:var(--box-shadow2);
+
+} 
+
+
+.header_area .main-menu .navbar .navbar-brand{
+    padding:0 2rem 0 1rem;
+}
+
+.header_area .main-menu .navbar{
+    padding:1rem 15 rem;
+}
+
+a.nav-link{
+    font-family: var(--fontnav);
+    text-transform: uppercase;
+    font-weight:100;
+    padding:0.5rem;
+    background: var(--gradient-color);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+
+.header_area .main-menu .navbar-nav a:focus{
+    background: var(--gradient-color4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+.header_area .main-menu .navbar-nav a:hover{
+    background: var(--gradient-color4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+i.fa-magnifying-glass{
+    background: var(--gradient-color);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    border:none;
+}
+
+i.fa-magnifying-glass:hover{
+    background: var(--gradient-color4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+/* nav end */
+
+/*main*/
+body {
+    background-image: url("image 2background2.png");
+    background-attachment: fixed;
+    background-size:cover;
+    
+}
+
+
+div.songcard {
+    box-shadow:var(--box-shadow2);
+}
+
+button.buttonclass1 {   /*for buttons*/
+    margin:1rem 2px 1.5rem 2px;
+    background-color: black;
+    border:none;
+    font-family: var(--fontnav);
+    text-transform: uppercase;
+    font-weight:200;
+
+}
+
+button.buttonclass3 {   /*for buttons*/
+    margin:1px 1px 1px 1px;
+    background-color: black;
+    border:none;
+    font-family: var(--fontnav);
+    text-transform: uppercase;
+    font-weight:200;
+
+}
+button.buttonclass3:active{
+
+    background-color: black;
+}
+
+
+button.buttonclass1:active{
+
+    background-color: black;
+}
+
+
+a.buttonclass2 {  /*for links*/
+    background: white;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+a.buttonclass2:hover{  /*for links*/
+    background: var(--gradient-color4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+}
+
+a.buttonclass2:active{  /*for links*/
+    background-color: white;
+}
+
+div.profilesection {
+    padding:2rem 2rem 2rem 2rem;
+    background-color:rgba(255, 255, 255, 0.2);
+    font-family: var(--fontnav);
+    box-shadow:none;
+}
+
+
+div.logoutpage {
+    color:white;
+    justify-content: center;
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+    font-family: var(--fontnav);
+    box-shadow:none;
+}
+
+div.recommendations {
+    background-color:rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+    font-family: var(--fontnav);
+}
+
+div.musicplayercard {
+    font-family: var(--fontnav);
+    color:white;
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+}
+
+div.myplaylist {
+    background-color:rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+    font-family: var(--fontnav);
+}
+
+
+div.explore {
+    background-color:rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+    font-family: var(--fontnav);
+}
+
+div.searchresults{
+    background-color:rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    padding:2rem 2rem 2rem 2rem;
+    font-family: var(--fontnav);
+}
+

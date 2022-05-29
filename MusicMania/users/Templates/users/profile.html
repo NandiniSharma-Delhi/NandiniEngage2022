@@ -1,0 +1,26 @@
+{% extends "homepage/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card profilesection">
+    <div class="card-body">
+        <div class="card-title">
+            <h2>
+                <i class="fas fa-user" style=" font-size:28px; margin-right:1rem;"></i>{{ user.username }}
+            </h2>
+            <p class="card-text">EMAIL: {{ user.email }}</p>
+        </div>
+    </div>
+    <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group" style="text-transform:uppercase;">
+                <legend class="border-bottom mb-4">
+                    UPDATE
+                </legend>
+                {{ u_form|crispy}}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info buttonclass1" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
