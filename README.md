@@ -13,15 +13,15 @@ As I have done something in ml for the first time,please ignore my errors.:)
 
 Reference for recommendation system code : https://github.com/madhavthaker/spotify-recommendation-system
 
-### First of all follow the following steps to be able to run this website:
+## First of all follow the following steps to be able to run this website:
 
 
-## 1.create a folder named MusicManiaProject;
+### 1.create a folder named MusicManiaProject;
 go to cmd(for windows) or similar terminals for linux.
 change path to this folder.
 
 
-## 2.creating a virtual environment:
+### 2.creating a virtual environment:
 
 inside this folder
 install virtualenv(if not done already):   
@@ -37,7 +37,7 @@ $venvmusic/Scripts/activate
 
 Now with activated virtualenvironment venvmusic,continue the rest of the instructions
 
-## 4.install all necessary packages inside virtual environment:
+### 4.install all necessary packages inside virtual environment:
 
 
 
@@ -45,19 +45,19 @@ $pip install django django-crispy-forms
 $pip install pandas sklearn
 $pip install django-pandas
 $pip install spotipy
-# other packages that may be required
+### other packages that may be required
 
 $pip install csvImporter
 $pip install python
 $pip install itertools sys re json numpy
 
 
-## 5.get your django's secret key by making a sample django project:
+### 5.get your django's secret key by making a sample django project:
 $django-admin startproject testproject
 
-## 6:go to testproject/testproject/settings.py and copy your SECRET_KEY from there
+### 6:go to testproject/testproject/settings.py and copy your SECRET_KEY from there
 
-## 7:copy above given folder "MusicMania" inside your "MusicManiaProject" Folder 
+### 7:copy above given folder "MusicMania" inside your "MusicManiaProject" Folder 
 so your MusicManiaProject folder now has 3 folders MusicMania and venvmusic and testproject
 
 MusicManiaProject
@@ -65,7 +65,7 @@ MusicManiaProject
 |---testproject
 |---venvmusic
 
-## 8:due to lack of space in gitrepo I have provided some files as drive links please download these files:
+### 8:due to lack of space in gitrepo I have provided some files as drive links please download these files:
 
 db.sqlite3:  https://drive.google.com/file/d/19mo2tQSeekKdDQMOGUHAxeqfAITPO2f9/view?usp=sharing
 artists.csv:https://drive.google.com/file/d/1H8jRz7q6b1tWTlwrbdPNIQrCNDJX4vXM/view?usp=sharing
@@ -73,23 +73,23 @@ tracksFinal.csv:https://drive.google.com/file/d/1ldkqY9INz6qRxFUoIlK2BEikwGEjKaY
 completeFeatures.csv:https://drive.google.com/file/d/1FWocx3-ieh8rBb8Lu0ogNR9DvQJAiZ9j/view?usp=sharing
 
 
-## 9:go to MusicManiaProject/MusicMania/recommender:
+### 9:go to MusicManiaProject/MusicMania/recommender:
 and copy files artists.csv,tracksFinal.csv,completeFeatures.csv in this folder
 
-## 10:go to MusicManiaProject/MusicMania
+### 10:go to MusicManiaProject/MusicMania
 copy db.sqlite file there.
 
 
-## 11:go to MusicManiaProject/MusicMania/MusicMania/settings.py and scroll down to find SECRET_KEY.Replace this secretkey with your secretkey obtained in step 6.
+### 11:go to MusicManiaProject/MusicMania/MusicMania/settings.py and scroll down to find SECRET_KEY.Replace this secretkey with your secretkey obtained in step 6.
 
-## 9:now with venvmusic activated, on terminal change directory to MusicManiaProject/MusicMania
+### 9:now with venvmusic activated, on terminal change directory to MusicManiaProject/MusicMania
 
-## 10:run following commands:
+### 10:run following commands:
 $python manage.py makemigrations
 $python manage.py migrate
 
 
-## 11:if spotify asks for login:
+### 11:if spotify asks for login:
 login to your account but first create a spotify developer account on:
 on spotify developer website login.
 then click on create app.
@@ -101,32 +101,32 @@ replace the clientid and clientsecret written there with your ones.
 if spotify does not ask for login,its fine.
 
 
-## 12:
+### 12:
 $python manage.py runserver
 
-## 13:go to "http://localhost:8000"
+### 13:go to "http://localhost:8000"
 
 
 14:you can login(register) and see the website working
 
-### Website :
+## Website :
 
 after login, website has pages: profile,logout,home,explore,recommended,My playlist,search
 
-profile:shows current user
-logout:to logout
-home:shows website name and about it.
-explore: shows trending songs based on data saved in tracksFinal.csv
-recommended: shows songs recommended based on songs saved in My playlist
-if there is no song in My Playlist then it shows nothing.
+1. profile:shows current user
+2. logout:to logout
+3. home:shows website name and about it.
+4. explore: shows trending songs based on data saved in tracksFinal.csv
+5. recommended: shows songs recommended based on songs saved in My playlist
+### if there is no song in My Playlist then recommender  shows nothing.
 
-My playlist: contains songs I added to my playlist by clicking on add to playlist buttons on explore,recommended,searched songs
+6. My playlist: contains songs I added to my playlist by clicking on add to playlist buttons on explore,recommended,searched songs
 search:can search songs based on song name and artist name only.
 
-music player:plays a welcome music already.if you want to play other song.Pause this player.sometimes you need to wait a few seconds after pausing.Then click on play button of the song you wish to play.it will show audio controls and image of that song.
+7: music player:plays a welcome music already.if you want to play other song.Pause this player.sometimes you need to wait a few seconds after pausing.Then click on play button of the song you wish to play.it will show audio controls and image of that song.
 
 
-### Time taken to load:
+## Time taken to load:
 The laptop I used to test this website is a normal i7 machine.Not having huge disk space.
 
 I will mention the website load time I observed on my machine:
@@ -149,7 +149,7 @@ recommender page can take 18-25 seconds to load
 search can take time based on the number of results in output of search.
 
 
-### About recommendation engine:
+## About recommendation engine:
 
 1:It is a content based recommendation system
 
@@ -159,12 +159,12 @@ search can take time based on the number of results in output of search.
 
 4:we used cosine similarity of various features such as genre,year,artists,danceability,etc.. to generate recommendations based on user's playlist.
 
-### datasets:
+## datasets:
 
 dataset reference:https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-600k-tracks
-tracksFinal.csv :contains a part of this big dataset.
-artists.csv:contains data about artists and genre
-completeFeatures.csv: obtained by running some functions on initial dataset.The functions used to obtain this dataset are written in engine.py.but the line is commented.So we directly read thsi file
+1. tracksFinal.csv :contains a part of this big dataset.
+2. artists.csv:contains data about artists and genre
+3 .completeFeatures.csv: obtained by running some functions on initial dataset.The functions used to obtain this dataset are written in engine.py.but the line is commented.So we directly read thsi file
 instead of running those functions again to obtain this data.This is done for speedup in running website.
 
 
