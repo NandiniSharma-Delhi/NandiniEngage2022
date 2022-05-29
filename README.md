@@ -1,8 +1,11 @@
 # NandiniEngage2022
 
 Hi this is Music Mania Project.
+
 By:Nandini Sharma
+
 Os used:windows
+
 web technologies : django , bootstrap5
 
 It is a music recommender website.Currently not hosted.
